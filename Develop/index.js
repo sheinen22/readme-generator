@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
+const generateMarkdown = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -17,10 +18,31 @@ const questions = [
         name: 'installation'
     },
     {
-        message: 'Please list any and all Usage information for your project',
+        message: 'Please list any and all Usage information for your project:',
         name: 'usage'
     },
-    
+    {
+        type: 'list',
+        message: "Please choose a license for your project.",
+        choices: ['Apache_2.0', 'Boost_1.0', 'MIT'],
+        name: 'license'
+    },
+    {
+        message: 'What are the contribution guidelines of your project?',
+        name: 'contribution'
+    },
+    {
+        message: 'Enter any test instructions required for this project:',
+        name: 'test'
+    },
+    {
+        message: 'Enter your Github username',
+        name: 'username'
+    },
+    {
+        message: 'Enter your email address:',
+        name: 'email'
+    },
 ];
 
 // TODO: Create a function to write README file
