@@ -46,10 +46,14 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(data) {
+    fs.writeFile("readme.md", generateMarkdown(data), (err) => (err) ? console.log("Error with generating readme file") : console.log("Readme has been generated"))
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions).then((data) => {writeToFile(data)})
+}
 
 // Function call to initialize app
 init();
